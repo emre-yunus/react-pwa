@@ -137,9 +137,6 @@ export function unregister() {
 }
 
 export function skip_waiting() {
-
-  console.log("werkt")
-
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready
         .then((registration) => {
@@ -149,4 +146,16 @@ export function skip_waiting() {
           console.error(error.message);
         });
   }
+}
+
+export function showNotification(text) {
+  Notification.requestPermission(function() {
+    navigator.serviceWorker.ready.then(function(registration) {
+      registration.showNotification(text);
+    });
+  });
+}
+
+export function checkForServiceWorker() {
+  return navigator.serviceWorker.controller !== null;
 }

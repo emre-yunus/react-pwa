@@ -1,9 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import logo2 from './logo512.png'
 import './App.css';
 import {skip_waiting} from "./serviceWorkerRegistration";
-import {sendNotification, stopNotification} from "./notificationManager";
+import {
+  sendNotifications,
+  stopNotification
+} from "./notificationManager";
 
 function App() {
   return (
@@ -24,13 +26,13 @@ function App() {
         <button onClick={skip_waiting}>skip waiting</button>
         <div>
           <h2>notifications API</h2>
-          <button onClick={sendNotification}>activate</button>
+          <button onClick={sendNotifications}>activate</button>
           <button onClick={stopNotification}>stop</button>
         </div>
         <div>
           <h2>notifications API (offline)</h2>
-          <button onClick={sendNotification}>activate</button>
-          <button onClick={stopNotification}>stop</button>
+          <button>activate</button>
+          <button>stop</button>
         </div>
       </header>
     </div>
