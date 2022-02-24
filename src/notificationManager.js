@@ -10,7 +10,7 @@ export async function sendNotifications() {
         console.log(checkForServiceWorker())
         if('Notification' in window) {
             if(checkForServiceWorker()) {
-                const notificationMessageServiceWorker = "online notification (service worker).";
+                const notificationMessageServiceWorker = "online notification (service worker on main-thread).";
                 serviceWorkerRegistration.showNotification(notificationMessageServiceWorker);
                 console.log(notificationMessageServiceWorker);
             } else {
